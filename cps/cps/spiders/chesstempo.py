@@ -13,6 +13,8 @@ class chesstempoSpider(scrapy.Spider):
     concurrent_max = 4
     count = 0
 
+    # NOTE: this requires scrapyjs and splash, since we want
+    # the website to load the content using JS before we crawl it
     def request(self):
         return scrapy.Request(TACTICS_URL, self.parse, meta={
             'splash': {
